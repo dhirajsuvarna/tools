@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "scrape-one-mg"
+version = "0.1.0"
+description = "Scraping 1mg.com"
+authors = ["Dhiraj Suvarna"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+scrapy = "^2.11.0"
+requests-html = "^0.10.0"
+websocket-client = "^1.7.0"
+scrapy-playwright = "^0.0.34"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
