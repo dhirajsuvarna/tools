@@ -8,5 +8,8 @@ import scrapy
 
 class ScrapeOneMgItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    drug_name = scrapy.Field()
+    marketer = scrapy.Field()
+    salt_composition = scrapy.Field()
+    storage = scrapy.Field()
+    product_introduction = scrapy.Field()
