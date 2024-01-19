@@ -26,7 +26,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-# DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
 # CONCURRENT_REQUESTS_PER_DOMAIN = 16
 # CONCURRENT_REQUESTS_PER_IP = 16
@@ -53,8 +53,14 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     "scrape_one_mg.middlewares.ScrapeOneMgDownloaderMiddleware": 943,
-    "scrapy.downloadermiddlewares.cookies.CookiesMiddleware": None,
+    "scrapy.downloadermiddlewares.useragent.UserAgentMiddleware": None,
+    "scrapy_user_agents.middlewares.RandomUserAgentMiddleware": 400,
 }
+
+# DOWNLOAD_HANDLERS = {
+#     "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+#     "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+# }
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -93,3 +99,26 @@ DOWNLOADER_MIDDLEWARES = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+# FEED_URI = "feed_%(item)s.jsonl"
+FEEDS = {
+    "DrugInfoItem.jsonl": {
+        "format": "jsonl",
+        "encoding": "utf8",
+        "store_empty": False,
+        "item_classes": ["scrape_one_mg.items.DrugInfoItem"],
+        "fields": None,
+        "indent": 4,
+    },
+    "DrugSummaryItem.jsonl": {
+        "format": "jsonl",
+        "encoding": "utf8",
+        "store_empty": False,
+        "item_classes": ["scrape_one_mg.items.DrugSummaryItem"],
+        "fields": None,
+        "indent": 4,
+    },
+}
+
+LOG_FILE = "spider.log"
+LOG_ENABLED = True
+LOG_FILE_APPEND = False

@@ -1,7 +1,7 @@
 from typing import Iterable
 import scrapy
 from scrapy.http import Request
-from scrape_one_mg.items import ScrapeOneMgItem
+from scrape_one_mg.items import DrugInfoItem
 
 
 class DrugsSpider(scrapy.Spider):
@@ -12,9 +12,9 @@ class DrugsSpider(scrapy.Spider):
         yield scrapy.Request(self.start_urls[0], meta={"playwright": True})
 
     def parse(self, response):
-        drug_item = ScrapeOneMgItem()
-        # with open("sample.html", "w", encoding="utf-8") as oFile:
-        #     oFile.write(response.text)
+        drug_item = DrugInfoItem()
+        with open("sample.html", "w", encoding="utf-8") as oFile:
+            oFile.write(response.text)
 
         # get the drug headers
         name_of_drug = response.css("div#drug_header h1::text").get()
