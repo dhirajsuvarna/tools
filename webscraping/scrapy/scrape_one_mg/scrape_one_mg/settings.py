@@ -108,6 +108,7 @@ FEEDS = {
         "item_classes": ["scrape_one_mg.items.DrugInfoItem"],
         "fields": None,
         "indent": 4,
+        "overwrite": True,
     },
     "DrugSummaryItem.jsonl": {
         "format": "jsonl",
@@ -116,6 +117,7 @@ FEEDS = {
         "item_classes": ["scrape_one_mg.items.DrugSummaryItem"],
         "fields": None,
         "indent": 4,
+        "overwrite": True,
     },
 }
 

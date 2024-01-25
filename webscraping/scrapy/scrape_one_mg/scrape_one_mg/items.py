@@ -8,11 +8,22 @@ import scrapy
 
 class DrugInfoItem(scrapy.Item):
     # define the fields for your item here like:
-    name = scrapy.Field()
-    marketer = scrapy.Field()
-    salt_composition = scrapy.Field()
-    storage = scrapy.Field()
-    product_introduction = scrapy.Field()
+    headers = scrapy.Field()
+    overview = scrapy.Field()
+    uses = scrapy.Field()
+    benefits = scrapy.Field()
+    side_effects = scrapy.Field()
+    how_to_use = scrapy.Field()
+    how_drug_works = scrapy.Field()
+    safety_advice = scrapy.Field()
+    missed_dose = scrapy.Field()
+    # substitutes = scrapy.Field()
+    expert_advice = scrapy.Field()
+    fact_box = scrapy.Field()
+    drug_interaction = scrapy.Field()
+    # patient_concerns = scrapy.Field()
+    # user_feedback = scrapy.Field()
+    faq = scrapy.Field()
 
 
 class DrugSummaryItem(scrapy.Item):
